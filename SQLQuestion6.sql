@@ -1,14 +1,12 @@
--- List all employees in the Sales department, including their 
--- employee number, last name, first name, and department name.
+-- List all employees in the sales department, including their 
+-- employee number, last name, first name, department name
 
 SELECT
-"Employees".emp_no,
-"Employees".last_name,
-"Employees".first_name,
-"Departments".dept_name
-FROM "Employees"
-INNER JOIN "Dept_Emp" ON
-"Dept_Emp".emp_no = "Employees".emp_no
-INNER JOIN "Departments" ON
-"Departments".dept_no = "Dept_Emp".dept_no
+employees.emp_no,
+employees.last_name,
+employees.first_name,
+departments.dept_name
+FROM employees
+INNER JOIN dept_emp ON dept_emp.emp_no = employees.emp_no
+INNER JOIN departments ON departments.dept_no = dept_emp.dept_no
 WHERE dept_name = 'Sales';

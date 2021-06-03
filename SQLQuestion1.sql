@@ -1,11 +1,10 @@
--- List the following details of each employee: employee number, last name, first name, sex, and salary.
+-- List the following details of each employee: employee number, last name, first name, sex, and salary
 
 SELECT 
-"Employees".emp_no, 
-"Employees".last_name, 
-"Employees".first_name, 
-"Employees".sex, 
-"Salaries".salary 
-FROM "Employees"
-INNER JOIN "Salaries" ON
-"Employees".emp_no = "Salaries".emp_no;
+employees.emp_no, 
+employees.last_name, 
+employees.first_name, 
+employees.sex, 
+salaries.salary 
+FROM employees
+INNER JOIN salaries ON employees.emp_no = salaries.emp_no;

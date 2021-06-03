@@ -1,19 +1,12 @@
 -- List all employees in the Sales and Development departments, including their 
--- employee number, last name, first name, and department name.
+-- employee number, last name, first name, department name
 
 SELECT
-emp_no,
-last_name,
-first_name
-FROM "Employees"
-WHERE emp_no IN
-(
-	SELECT emp_no
-	FROM "Dept_Emp"
-	WHERE dept_no IN
-	(	
-		SELECT dept_no
-		FROM "Departments"
-		WHERE (dept_name = 'Sales') OR (dept_name = 'Development')
-	)
-);
+employees.emp_no,
+employees.last_name,
+employees.first_name,
+departments.dept_name
+FROM employees
+INNER JOIN dept_emp ON dept_emp.emp_no = employees.emp_no
+INNER JOIN departments ON departments.dept_no = dept_emp.dept_no
+WHERE dept_name = 'Sales' OR dept_name = 'Development'
